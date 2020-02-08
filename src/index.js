@@ -1,29 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const name = "Rahul Ravi Prakash";
-const profession = "iOS Developer";
-const currentYear = new Date().getFullYear();
+const currentTime = new Date(2020, 1, 1, 16).getHours();
 
-const img = "https://picsum.photos/200";
+const customColor = {
+  color: ""
+};
+
+var greeting;
+
+if (currentTime < 12) {
+  greeting = "Good Morning!";
+  customColor.color = "red";
+} else if (currentTime < 18) {
+  greeting = "Good Evening!";
+  customColor.color = "Blue";
+} else {
+  greeting = "Good Night!";
+  customColor.color = "Green";
+}
+
 ReactDOM.render(
   <div>
-    <h1 className="heading">My Favourite Foods</h1>
-    <ul>
-      {/* <li>Chicken Popcorn</li>
-      <li>Chicken Pakoda</li>
-      <li>Chicken Reshmi kebab</li> */}
-      <img alt="MyTickPhoto" src={img} /> /Added Image
-    </ul>
-
-    {/* <div>
-      <h2>My name is {name}</h2>
-      <p>I'm an {profession}</p>
-    </div>
-    <div>
-      <p>Created by {name} </p>
-      <p>Copyright {currentYear}</p>
-    </div> */}
+    <h1 className="heading">{greeting}</h1>
   </div>,
 
   document.getElementById("root")
